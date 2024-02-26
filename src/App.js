@@ -1,23 +1,52 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Header from "./components/header/header";
+
+// function getApi() {
+//   fetch(" http://api.valantis.store:40000/", {
+//     method: "POST",
+//     headers: {
+//       "X-Auth": "36c58664c6a85656502117384b351c40",
+//       "Content-Type": "application/json; charset=utf-8",
+//     },
+//     body: JSON.stringify({
+//       action: "get_ids",
+//       params: { offset: 0, limit: 10 },
+//     }),
+//   })
+//     .then((response) => {
+//       return response.json();
+//     })
+//     .then((data) => {
+//       getItems(data.result);
+//       return data;
+//     });
+// }
+// const api = getApi();
+// function getItems(items) {
+//   fetch(" http://api.valantis.store:40000/", {
+//     method: "POST",
+//     headers: {
+//       "X-Auth": "36c58664c6a85656502117384b351c40",
+//       "Content-Type": "application/json; charset=utf-8",
+//     },
+//     body: JSON.stringify({
+//       action: "get_items",
+//       params: { ids: items },
+//     }),
+//   })
+//     .then((response) => {
+//       return response.json();
+//     })
+//     .then((data) => {
+//       console.log(data);
+//       return data;
+//     });
+// }
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
     </div>
   );
 }
