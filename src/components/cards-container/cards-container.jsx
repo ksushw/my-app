@@ -1,5 +1,5 @@
 import * as React from "react";
-import { styled, alpha } from "@mui/material/styles";
+
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
@@ -8,8 +8,9 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Typography from "@mui/material/Typography";
-import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
+import Cart from "../cart/cart";
+import Pagination from "@mui/material/Pagination";
 
 export default function CardsContainer() {
   const [sortingType, setSortingType] = React.useState("");
@@ -18,21 +19,12 @@ export default function CardsContainer() {
     setSortingType(event.target.value);
   };
 
-  const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: "center",
-    color: theme.palette.text.secondary,
-  }));
   return (
     <>
       <CssBaseline />
       <Container fixed>
         <Box
           sx={{
-            // bgcolor: "#cfe8fc",
-            height: "100vh",
             maxWidth: "1440px",
             width: "100%",
             margin: "30px 0",
@@ -44,7 +36,7 @@ export default function CardsContainer() {
               justifyContent: "space-between",
               alignItems: "center",
               padding: "5px",
-              border: 1,
+              boxShadow: 1,
               borderColor: "grey.500",
               borderRadius: "5px",
             }}
@@ -76,34 +68,52 @@ export default function CardsContainer() {
               </FormControl>
             </Box>
           </Box>
+          <Pagination
+            count={10}
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              marginTop: "15px",
+            }}
+          />
           <Box
             sx={{
-              border: 1,
-              borderColor: "grey.500",
-              borderRadius: "5px",
+              boxShadow: 1,
               margin: "10px 0 0 0 ",
               flexGrow: 1,
               padding: "10px",
+              minHeight: "calc(100vh - 300px)",
             }}
           >
             <Grid container spacing={3} columns={5}>
               <Grid item xs={1}>
-                <Item>xs=8</Item>
+                <Cart name="224" brand="gucci" price={12331} />
               </Grid>
               <Grid item xs={1}>
-                <Item>xs=8</Item>
+                <Cart name="fgvhbjk" brand="gucci" price={12331} />
               </Grid>
               <Grid item xs={1}>
-                <Item>xs=8</Item>
+                <Cart name="fgvhbjk" brand="gucci" price={12331} />
               </Grid>
               <Grid item xs={1}>
-                <Item>xs=8</Item>
+                <Cart name="fgvhbjk" brand="gucci" price={12331} />
               </Grid>
               <Grid item xs={1}>
-                <Item>xs=8</Item>
+                <Cart name="224" brand="gucci" price={12331} />
+              </Grid>
+              <Grid item xs={1}>
+                <Cart name="fgvhbjk" brand="gucci" price={12331} />
               </Grid>
             </Grid>
           </Box>
+          <Pagination
+            count={10}
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              marginTop: "15px",
+            }}
+          />
         </Box>
       </Container>
     </>
