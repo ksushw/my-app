@@ -12,9 +12,9 @@ import Grid from "@mui/material/Grid";
 import Cart from "../cart/cart";
 import Pagination from "@mui/material/Pagination";
 
-export default function CardsContainer() {
+export default function CardsContainer({ items, IsLoading }) {
   const [sortingType, setSortingType] = React.useState("");
-
+  console.log(items, "in");
   const handleChangeSorting = (event) => {
     setSortingType(event.target.value);
   };
@@ -86,10 +86,19 @@ export default function CardsContainer() {
             }}
           >
             <Grid container spacing={3} columns={5}>
-              <Grid item xs={1}>
-                <Cart name="224" brand="gucci" price={12331} />
-              </Grid>
-              <Grid item xs={1}>
+              {items.map((item) => {
+                return (
+                  <Grid item xs={1}>
+                    <Cart
+                      name={item.product}
+                      brand={item.brand}
+                      price={item.price}
+                    />
+                  </Grid>
+                );
+              })}
+
+              {/* <Grid item xs={1}>
                 <Cart name="fgvhbjk" brand="gucci" price={12331} />
               </Grid>
               <Grid item xs={1}>
@@ -103,7 +112,7 @@ export default function CardsContainer() {
               </Grid>
               <Grid item xs={1}>
                 <Cart name="fgvhbjk" brand="gucci" price={12331} />
-              </Grid>
+              </Grid> */}
             </Grid>
           </Box>
           <Pagination
