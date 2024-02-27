@@ -1,5 +1,6 @@
 import "./App.css";
 import Header from "./components/header/header";
+import CardsContainer from "./components/cards-container/cards-container";
 
 // function getApi() {
 //   fetch(" http://api.valantis.store:40000/", {
@@ -47,6 +48,7 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <CardsContainer />
     </div>
   );
 }
