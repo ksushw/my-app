@@ -4,7 +4,7 @@ export async function getIds(offset, limit) {
   return await fetch(" http://api.valantis.store:40000/", {
     method: "POST",
     headers: {
-      "X-Auth": "30fec2904fe148b7fe7cc5eeb3df9d6e",
+      "X-Auth": "f4ce7812198eea284557602443602a80",
       "Content-Type": "application/json; charset=utf-8",
     },
     body: JSON.stringify({
@@ -18,11 +18,29 @@ export async function getIds(offset, limit) {
     });
 }
 
+export async function getFilteredIds(param, value) {
+  return await fetch("http://api.valantis.store:40000/", {
+    method: "POST",
+    headers: {
+      "X-Auth": "f4ce7812198eea284557602443602a80",
+      "Content-Type": "application/json; charset=utf-8",
+    },
+    body: JSON.stringify({
+      action: "filter",
+      params: { [param]: value },
+    }),
+  })
+    .then(_getResponseData)
+    .then((data) => {
+      return data.result;
+    });
+}
+
 export async function getItems(items) {
   return await fetch(" http://api.valantis.store:40000/", {
     method: "POST",
     headers: {
-      "X-Auth": "30fec2904fe148b7fe7cc5eeb3df9d6e",
+      "X-Auth": "f4ce7812198eea284557602443602a80",
       "Content-Type": "application/json; charset=utf-8",
     },
     body: JSON.stringify({
