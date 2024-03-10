@@ -1,4 +1,7 @@
 import { _getResponseData } from "../../utils/get-response-data";
+import { errorHandler } from "../../utils/erorHandler";
+
+errorHandler();
 
 export async function getIds(offset, limit) {
   return await fetch(" http://api.valantis.store:40000/", {

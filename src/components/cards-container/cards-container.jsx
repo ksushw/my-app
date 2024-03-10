@@ -134,9 +134,9 @@ export default function CardsContainer({
               </Box>
             ) : (
               <Grid container spacing={3} columns={5}>
-                {items.map((item) => {
+                {items.map((item, index) => {
                   return (
-                    <Grid item xs={1}>
+                    <Grid item xs={1} key={index}>
                       <Cart
                         name={item.product}
                         brand={item.brand}
