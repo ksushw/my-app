@@ -21,9 +21,14 @@ export default function CardsContainer({
   IsLoading,
   formRef,
   findFormSubmit,
+  changePage,
 }) {
   const [sortingType, setSortingType] = React.useState("unsorted");
   const [sortingValue, setSortingValue] = React.useState("");
+
+  const handleChangePage = (event, value) => {
+    changePage(value);
+  };
 
   const handleChangeSorting = (event) => {
     setSortingType(event.target.value);
@@ -155,6 +160,7 @@ export default function CardsContainer({
               justifyContent: "center",
               marginTop: "15px",
             }}
+            onChange={handleChangePage}
           />
         </Box>
       </Container>

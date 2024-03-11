@@ -6,18 +6,19 @@ import { getIds, getItems, getFilteredIds } from "../../components/api";
 function GoodsPage() {
   const [goods, setGoods] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [page, setPage] = useState(1);
 
   const filter = (type, value) => {
     if (type === "unsorted") {
-      getGoodsData(0, 50);
+      getGoodsData(0 + (page - 1) * 50, 50 + (page - 1) * 50);
     } else {
       filteredData(type, value);
     }
   };
 
   useEffect(() => {
-    getGoodsData(0, 50);
-  }, []);
+    getGoodsData(0 + (page - 1) * 50, 50 + (page - 1) * 50);
+  }, [page]);
 
   const getUniqueArray = (items) => {
     const uniqueArray = [];
@@ -53,6 +54,7 @@ function GoodsPage() {
         items={goods}
         IsLoading={loading}
         findFormSubmit={filter}
+        changePage={setPage}
       />
     </>
   );
